@@ -58,14 +58,75 @@ Abaixo está a organização dos arquivos e pastas do repositório:
 
 ```text
 v_erp/
-├── 🎨 css/             # Folhas de estilo (Design do sistema)
-├── 📜 js/              # Scripts de interatividade e AJAX
-├── 📄 pages/           # Telas de interface do usuário
-│   └── 🐘 php/         # Processamento de páginas específicas
-│       └── 🔌 api/     # Endpoints para requisições de login e dados
-├── 🐘 php/             # Conexão com Banco de Dados e lógica global
-├── 🗃️ sql/             # Arquivos de exportação do banco de dados (MySQL)
-└── 🌐 index.html       # Página inicial do sistema
+
+├── 📄 index.html
+
+├── 📁 css/
+
+│ └── 📄 style.css
+
+├── 📁 js/
+
+│ ├──📄 auth.js
+
+│ ├──📄 dashboard.js
+
+│ ├──📄 compras.js
+
+│ ├──📄 login.js
+
+│ ├──📄 produtos.js
+
+│ ├──📄 sidebar.js
+
+│ └──📄 usuarios.js
+
+├── 📁 pages/
+
+│ ├── 📄compras.html
+
+│ ├── 📄 dashboard.html
+
+│ ├── 📄 login.html
+
+│ ├── 📄 produtos.html
+
+│ ├── 📄 sidebar.html
+
+│ └── 📄 usuarios.html
+
+├── 📁 php/
+
+│ ├── 📁 db/
+
+│ │ ├── 📄compras_db.php
+
+│ │ ├── 📄 dashboard_db.php
+
+│ │ ├── 📄 login_db.php
+
+│ │ ├── 📄 produtos_db.php
+
+│ │ ├── 📄 sidebar_db.php
+
+│ │ └── 📄 usuarios_db.php
+
+│ └── 📁 api/
+
+│ │ ├── 📄api_compras.php
+
+│ │ ├── 📄api_dashboard.php
+
+│ │ ├── 📄api_login.php
+
+│ │ ├── 📄api_produtos.php
+
+│ │ ├── 📄api_sidebar.php
+
+│ │ └── 📄api_usuarios.php
+
+│ ├──  📁 sql/
+│ └── 📄 database.sql
 ```
 ---
 ## 🚀 Como Rodar na Sua Máquina
@@ -105,16 +166,13 @@ Com tudo configurado, basta acessar o endereço abaixo no seu navegador:
 http://localhost/v_erp/index.html
 ```
 
-## ⌨️ Desenvolvedor
-<p align="left">
-<img src="https://www.google.com/search?q=https://github.com/vinicius200019.png" width="80px" alt="Vinícius" style="border-radius: 50%" />
+## ⌨️ Desenvolvedores
+
 
 
 <strong>Vinícius</strong>
 
 
-<a href="https://www.google.com/search?q=https://github.com/vinicius200019">Meu Perfil no GitHub</a>
-</p>
 
 
 
