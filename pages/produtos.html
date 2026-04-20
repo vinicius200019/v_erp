@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>V-ERP - Estoque</title>
+</head>
+<body>
+    <header><h1>📦 Gerenciamento de Estoque</h1></header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="produtos.html">Estoque</a></li>
+            <li><a href="compras.html">Compras</a></li>
+            <li><a href="usuarios.html">Equipe</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="pesquisa-container">
+            <input type="text" placeholder="Buscar por SKU ou Nome..." id="busca-produto">
+            <button class="btn">Pesquisar</button>
+            <button class="btn btn-secondary">+ Novo Produto</button>
+        </div>
+
+        <div class="card">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Produto</th>
+                        <th>Estoque</th>
+                        <th>Preço Venda</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-produtos">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/produtos.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", renderProdutos);</script>
+</body>
+</html>

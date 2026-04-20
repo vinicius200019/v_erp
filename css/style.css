@@ -1,0 +1,161 @@
+/* ============================================================
+   1. VARIÁVEIS CSS
+   ============================================================ */
+:root {
+    --cor-fundo: #f1f5f9;
+    --cor-container: #ffffff;
+    --cor-texto: #1e293b;
+    --cor-primaria: #2563eb;         /* Azul Corporativo */
+    --cor-secundaria: #0f172a;       /* Slate Escuro */
+    --cor-destaque-hover: #3b82f6;
+    --cor-erro: #dc2626;
+    --cor-header: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    --cor-texto-claro: #f8fafc;
+    --cor-borda: #e2e8f0;
+}
+
+/* ============================================================
+   2. ESTILOS GERAIS
+   ============================================================ */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+header {
+    background: var(--cor-header);
+    color: var(--cor-texto-claro);
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+nav {
+    background-color: var(--cor-container);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 15px 25px;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+    border-bottom-color: var(--cor-primaria);
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ============================================================
+   3. HERO SECTION
+   ============================================================ */
+.hero {
+    background: var(--cor-secundaria);
+    border-radius: 20px;
+    padding: 80px 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3);
+}
+
+.hero-content h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ============================================================
+   4. BOTÕES E CARDS
+   ============================================================ */
+.btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-hero { background: var(--cor-primaria); color: white; }
+.btn-hero:hover { background: var(--cor-destaque-hover); transform: translateY(-2px); }
+
+.btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid white; }
+.btn-secondary:hover { background: white; color: var(--cor-secundaria); }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid var(--cor-borda);
+    transition: 0.3s;
+}
+
+.feature-card:hover { transform: translateY(-10px); }
+
+.feature-icon { font-size: 3.5em; margin-bottom: 20px; }
+
+/* ============================================================
+   5. ESTATÍSTICAS (STATS)
+   ============================================================ */
+.stats {
+    background: var(--cor-primaria);
+    border-radius: 20px;
+    padding: 50px;
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-number { font-size: 2.5em; font-weight: 800; }
+.stat-label { opacity: 0.8; text-transform: uppercase; font-size: 0.8em; }
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}

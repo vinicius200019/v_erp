@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>V-ERP - Compras</title>
+</head>
+<body>
+    <header><h1>💰 Registro de Compras</h1></header>
+    <nav><ul></ul></nav>
+
+    <main>
+        <div class="card">
+            <h2>Lançar Entrada de Mercadoria</h2>
+            <div class="form-buttons">
+                <button class="btn btn-hero">+ Registrar Compra</button>
+            </div>
+            
+            <table class="crud-table" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Produto</th>
+                        <th>Qtd</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-compras"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/compras.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", renderCompras);</script>
+</body>
+</html>

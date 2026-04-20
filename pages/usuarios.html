@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>V-ERP - Equipe</title>
+</head>
+<body>
+    <header><h1>👥 Gestão de Usuários</h1></header>
+    <nav><ul></ul></nav>
+
+    <main>
+        <div class="card">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>E-mail</th>
+                        <th>Perfil</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-usuarios"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/usuarios.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", renderUsuarios);</script>
+</body>
+</html>

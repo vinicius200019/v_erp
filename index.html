@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-ERP - Gestão Empresarial</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>📦 V-ERP | Sistema de Gestão</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="pages/dashboard.html">Dashboard</a></li>
+        <li><a href="pages/produtos.html">Estoque</a></li>
+        <li><a href="pages/compras.html">Compras</a></li>
+        <li><a href="pages/usuarios.html">Equipe</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Controle total da sua empresa! 🚀</h2>
+          <p>Gerencie seu estoque, compras e equipe em um ambiente integrado e profissional.</p>
+          <div class="hero-buttons">
+            <a href="pages/login.html" class="btn btn-hero">Acessar Sistema</a>
+            <a href="#funcionalidades" class="btn btn-secondary">Ver Módulos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="funcionalidades">
+        <h2 class="section-title">Módulos do Sistema</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Estoque</h3>
+            <p>Controle de produtos, SKUs e níveis críticos de mercadoria.</p>
+            <a href="pages/produtos.html" class="feature-link">Gerenciar Estoque →</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Compras</h3>
+            <p>Registre entradas de mercadoria e gerencie custos de aquisição.</p>
+            <a href="pages/compras.html" class="feature-link">Registrar Entradas →</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Dashboard</h3>
+            <p>Visualize a saúde financeira e o valor total do seu patrimônio.</p>
+            <a href="pages/dashboard.html" class="feature-link">Ver Painel →</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Equipe</h3>
+            <p>Controle de acessos e perfis de usuários (Admin vs Vendedor).</p>
+            <a href="pages/usuarios.html" class="feature-link">Gerenciar Equipe →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="stat-produtos">-</div>
+            <div class="stat-label">Produtos Ativos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-estoque">-</div>
+            <div class="stat-label">Itens em Estoque</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-usuarios">-</div>
+            <div class="stat-label">Operadores</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-vendas">-</div>
+            <div class="stat-label">Valor Patrimonial</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 - V-ERP | Desenvolvimento Acadêmico</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Busca estatísticas de produtos
+        fetch('php/api/api_produtos.php')
+          .then(r => r.json())
+          .then(data => {
+            document.getElementById('stat-produtos').textContent = data.length || '0';
+          });
+
+        // Busca estatísticas do dashboard (valor e estoque)
+        fetch('php/api/api_dashboard.php')
+          .then(r => r.json())
+          .then(data => {
+            document.getElementById('stat-estoque').textContent = data.total || '0';
+            document.getElementById('stat-vendas').textContent = 'R$ ' + data.valor;
+          });
+
+        // Busca usuários
+        fetch('php/api/api_usuarios.php')
+          .then(r => r.json())
+          .then(data => {
+            document.getElementById('stat-usuarios').textContent = data.length || '0';
+          });
+      });
+    </script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
