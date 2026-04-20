@@ -1,28 +1,34 @@
-🚀 ERP System - Gestão Integrada
+🚀 <h1> V-ERP - Sistema de Gestão Empresarial <h1>
 <p align="center">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-<img src="https://img.shields.io/badge/XAMPP-FB8C00?style=for-the-badge&logo=xampp&logoColor=white" alt="XAMPP" />
 </p>
 
-O ERP System é uma plataforma web de Planejamento de Recursos Empresariais focada na eficiência operacional. Desenvolvido para centralizar processos de gestão, o sistema oferece um ambiente seguro para controle de dados, autenticação de usuários e gerenciamento de informações críticas.
+O V-ERP é uma aplicação web desenvolvida para facilitar o gerenciamento de processos empresariais. O projeto utiliza uma arquitetura robusta integrando Front-end dinâmico com um Back-end estruturado em PHP para manipulação de dados e autenticação segura.
 
 📋 Funcionalidades
-Sistema de Autenticação: Login seguro via API com validação de credenciais em banco de dados.
+Módulo de Autenticação: Login seguro validado via banco de dados MySQL.
 
-Painel de Controle (Dashboard): Visualização rápida de métricas e status do sistema.
+Gestão de Dados: Interface preparada para CRUD (Criação, Leitura, Atualização e Deleção) de informações.
 
-Persistência de Dados: Integração completa com MySQL para armazenamento confiável.
+API Interna: Comunicação entre o front-end e o servidor via scripts PHP na pasta /php/api.
 
-Interface Responsiva: Design adaptável para diferentes tamanhos de tela.
+Design Modular: Organização de estilos e scripts separados para melhor manutenção.
 
-🛠️ Tecnologias Utilizadas
-Linguagem: PHP
+🛠️ Tecnologias e Ferramentas
+Front-end: HTML5, CSS3 e JavaScript.
 
-Banco de Dados: MySQL
+Back-end: PHP (Processamento de requisições e lógica de negócio).
 
-Servidor Local: XAMPP (Apache)
+Banco de Dados: MySQL (Relacional).
 
-Frontend: HTML5, CSS3, JavaScript
+Servidor Recomendado: XAMPP / WampServer.
 
-Arquitetura: Integração via API interna para processos de autenticação.****
+🚀 Como Instalar o Projeto
+Siga os passos abaixo para rodar o ERP na sua máquina local:
+
+1. Clonar o Repositório
+Baixe os arquivos ou clone o projeto diretamente na sua pasta de servidor local (ex: C:/xampp/htdocs/):
