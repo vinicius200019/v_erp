@@ -10,6 +10,7 @@
     <nav>
         <ul>
             <li><a href="../index.html">Início</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="produtos.html">Estoque</a></li>
             <li><a href="compras.html">Compras</a></li>
             <li><a href="usuarios.html">Equipe</a></li>
@@ -17,10 +18,19 @@
     </nav>
 
     <main>
-        <div class="pesquisa-container">
-            <input type="text" placeholder="Buscar por SKU ou Nome..." id="busca-produto">
-            <button class="btn">Pesquisar</button>
-            <button class="btn btn-secondary">+ Novo Produto</button>
+        <!-- Botão grande de cadastro -->
+        <button class="btn-novo-produto" onclick="abrirModalNovoProduto()">
+            ➕ Cadastrar Novo Produto
+        </button>
+
+        <!-- Abas de status -->
+        <div class="tab-buttons">
+            <button id="tab-ativos" class="tab-btn active" onclick="trocarAba(1)">
+                Produtos em Atividade
+            </button>
+            <button id="tab-inativos" class="tab-btn" onclick="trocarAba(0)">
+                Produtos Inativos
+            </button>
         </div>
 
         <div class="card">
@@ -34,14 +44,73 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="lista-produtos">
-                    </tbody>
+                <tbody id="lista-produtos"></tbody>
             </table>
         </div>
     </main>
 
+    <!-- Modal de CADASTRO de novo produto -->
+    <div id="modal-novo-produto" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h2>Cadastrar Novo Produto</h2>
+            <p style="color: #64748b; font-size: 0.9em; margin-top: -10px;">
+                O ID será gerado automaticamente pelo sistema.
+            </p>
+            <div class="form-group">
+                <label>SKU (Código do Produto)</label>
+                <input type="text" id="novo-sku" placeholder="Ex: SCCP-002">
+            </div>
+            <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" id="novo-nome" placeholder="Ex: Camisa Palmeiras 2024">
+            </div>
+            <div class="form-group">
+                <label>Estoque Inicial</label>
+                <input type="number" id="novo-estoque" min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+                <label>Preço de Venda (R$)</label>
+                <input type="number" id="novo-preco" step="0.01" min="0" placeholder="0.00">
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary-modal" onclick="fecharModalNovoProduto()">Cancelar</button>
+                <button class="btn btn-hero" onclick="cadastrarProduto()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de EDIÇÃO -->
+    <div id="modal-produto" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h2>Editar Produto</h2>
+            <input type="hidden" id="edit-id">
+            <div class="form-group">
+                <label>SKU</label>
+                <input type="text" id="edit-sku">
+            </div>
+            <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" id="edit-nome">
+            </div>
+            <div class="form-group">
+                <label>Estoque</label>
+                <input type="number" id="edit-estoque" min="0">
+            </div>
+            <div class="form-group">
+                <label>Preço de Venda (R$)</label>
+                <input type="number" id="edit-preco" step="0.01" min="0">
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary-modal" onclick="fecharModalProduto()">Cancelar</button>
+                <button class="btn btn-hero" onclick="salvarProduto()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
     <script src="../js/auth.js"></script>
     <script src="../js/produtos.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", renderProdutos);</script>
 </body>
 </html>
