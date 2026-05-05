@@ -1,36 +1,28 @@
 /**
- * js/dashboard.js - Carrega as estatísticas do ERP
+ * js/compras.js - Registro de entradas/compras
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Só executa se estivermos na index (onde existem os IDs de estatísticas)
-if (document.getElementById('stat-produtos')) {
-    carregarEstatisticas();
-}
-});
+async function renderCompras() {
+    const container = document.getElementById('lista-compras');
+    if (!container) return;
 
-async function carregarEstatisticas() {
     try {
-        // Busca total de produtos e valor em estoque
-        const respDash = await fetch('../php/api/api_dashboard.php');
-        const dataDash = await respDash.json();
+        const resp = await fetch('../php/api/api_compras.php');
+        const compras = await resp.json();
 
-        document.getElementById('stat-estoque').textContent = dataDash.total || '0';
-        document.getElementById('stat-vendas').textContent = 'R$ ' + dataDash.valor;
+        container.innerHTML = '';
 
-        // Busca quantidade de usuários (operadores)
-        const respUser = await fetch('../php/api/api_usuarios.php');
-        const dataUser = await respUser.json();
-        document.getElementById('stat-usuarios').textContent = dataUser.length || '0';
-
-        // Busca quantidade de produtos únicos
-        const respProd = await fetch('../php/api/api_produtos.php');
-        const dataProd = await respProd.json();
-        document.getElementById('stat-produtos').textContent = dataProd.length || '0';
-
+        compras.forEach(c => {
+            container.innerHTML += `
+                <tr>
+                    <td>${new Date(c.data_compra).toLocaleDateString('pt-BR')}</td>
+                    <td>${c.produto_nome}</td>
+                    <td>${c.quantidade}</td>
+                    <td>R$ ${parseFloat(c.valor_total).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</td>
+                </tr>
+            `;
+        });
     } catch (error) {
-        console.error("Erro ao carregar dashboard:", error);
-        // Em caso de erro, define como zero para não ficar o traço "-"
-        document.querySelectorAll('.stat-number').forEach(el => el.textContent = '0');
+        console.error("Erro ao carregar compras:", error);
     }
 }
