@@ -55,13 +55,21 @@ git clone [https://github.com/vinicius200019/v_erp.git](https://github.com/vinic
 ## 📈 Fluxo do Sistema
 
 [ADMIN] cadastra produto novo no estoque
+
    ↓
+   
 [ADMIN] registra compra do fornecedor (estoque sobe)
+   
    ↓
+   
 [CLIENTE] entra na tela de loja, escolhe o produto, compra
+   
    ↓
+   
 [SISTEMA] registra venda automaticamente, estoque desce
+   
    ↓
+   
 [ADMIN] vê tudo no dashboard
 
 ---
