@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>V-ERP - Minhas Compras</title>
+</head>
+<body>
+    <header><h1>📜 Minhas Compras</h1></header>
+    <nav>
+        <ul>
+            <li><a href="loja.html">Produtos</a></li>
+            <li><a href="minhas-compras.html">Minhas Compras</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Resumo do cliente -->
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-compras">-</div>
+                    <div class="stat-label">Compras Realizadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-itens">-</div>
+                    <div class="stat-label">Itens Comprados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-gasto">-</div>
+                    <div class="stat-label">Valor Total Gasto</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="ultima-compra">-</div>
+                    <div class="stat-label">Última Compra</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 30px;">
+            <h2>Histórico de Compras</h2>
+            <p style="color: #64748b; font-size: 0.9em;">
+                Todas as suas compras realizadas na loja.
+            </p>
+            <table class="crud-table" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-minhas-compras"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/minhas-compras.js"></script>
+</body>
+</html>
