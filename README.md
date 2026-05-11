@@ -80,75 +80,66 @@ Abaixo está a organização dos arquivos e pastas do repositório:
 
 ```text
 v_erp/
-
+│
 ├── 📄 index.html
-
+│
 ├── 📁 css/
-
-│ └── 📄 style.css
-
+│   └── 📄 style.css
+│
 ├── 📁 js/
-
-│ ├──📄 auth.js
-
-│ ├──📄 dashboard.js
-
-│ ├──📄 compras.js
-
-│ ├──📄 login.js
-
-│ ├──📄 produtos.js
-
-│ ├──📄 sidebar.js
-
-│ └──📄 usuarios.js
-
+│   ├── 📄 auth.js
+│   ├── 📄 compras.js
+│   ├── 📄 dashboard.js
+│   ├── 📄 loja.js                              ⭐ NOVO
+│   ├── 📄 login.js
+│   ├── 📄 minhas-compras.js                    ⭐ NOVO
+│   ├── 📄 produtos.js
+│   ├── 📄 sidebar.js
+│   ├── 📄 usuarios.js
+│   └── 📄 vendas.js                            ⭐ NOVO
+│
 ├── 📁 pages/
-
-│ ├── 📄compras.html
-
-│ ├── 📄 dashboard.html
-
-│ ├── 📄 login.html
-
-│ ├── 📄 produtos.html
-
-│ ├── 📄 sidebar.html
-
-│ └── 📄 usuarios.html
-
+│   ├── 📄 compras.html
+│   ├── 📄 dashboard.html
+│   ├── 📄 loja.html                            ⭐ NOVO
+│   ├── 📄 login.html
+│   ├── 📄 minhas-compras.html                  ⭐ NOVO
+│   ├── 📄 produtos.html
+│   ├── 📄 usuarios.html
+│   └── 📄 vendas.html                          ⭐ NOVO
+│
 ├── 📁 php/
-
-│ ├── 📁 db/
-
-│ │ ├── 📄compras_db.php
-
-│ │ ├── 📄 dashboard_db.php
-
-│ │ ├── 📄 login_db.php
-
-│ │ ├── 📄 produtos_db.php
-
-│ │ ├── 📄 sidebar_db.php
-
-│ │ └── 📄 usuarios_db.php
-
-│ └── 📁 api/
-
-│ │ ├── 📄api_compras.php
-
-│ │ ├── 📄api_dashboard.php
-
-│ │ ├── 📄api_login.php
-
-│ │ ├── 📄api_produtos.php
-
-│ │ ├── 📄api_sidebar.php
-
-│ │ └── 📄api_usuarios.php
-
-│ ├──  📁 sql/
-│ └── 📄 database.sql
+│   │
+│   ├── 📁 api/
+│   │   ├── 📄 api_alterar_status_produto.php   ⭐ NOVO
+│   │   ├── 📄 api_cadastrar_cliente.php        ⭐ NOVO
+│   │   ├── 📄 api_compras.php
+│   │   ├── 📄 api_criar_compra.php             ⭐ NOVO
+│   │   ├── 📄 api_criar_produto.php            ⭐ NOVO
+│   │   ├── 📄 api_criar_usuario.php            ⭐ NOVO
+│   │   ├── 📄 api_dashboard.php
+│   │   ├── 📄 api_editar_produto.php           ⭐ NOVO
+│   │   ├── 📄 api_excluir_usuario.php          ⭐ NOVO
+│   │   ├── 📄 api_login.php
+│   │   ├── 📄 api_minhas_compras.php           ⭐ NOVO
+│   │   ├── 📄 api_produtos.php
+│   │   ├── 📄 api_registrar_venda.php          ⭐ NOVO
+│   │   ├── 📄 api_sidebar.php
+│   │   ├── 📄 api_usuarios.php
+│   │   └── 📄 api_vendas.php                   ⭐ NOVO
+│   │
+│   └── 📁 db/
+│       ├── 📄 compras_db.php
+│       ├── 📄 conexao.php
+│       ├── 📄 dashboard_db.php
+│       ├── 📄 login_db.php
+│       ├── 📄 produtos_db.php
+│       ├── 📄 sidebar_db.php
+│       ├── 📄 usuarios_db.php
+│       └── 📄 vendas_db.php                    ⭐ NOVO
+│
+└── 📁 sql/
+└── 📄 database.sql
 ```
 ---
 ## 🚀 Como Rodar na Sua Máquina
