@@ -90,43 +90,43 @@ v_erp/
 │   ├── 📄 auth.js
 │   ├── 📄 compras.js
 │   ├── 📄 dashboard.js
-│   ├── 📄 loja.js                              ⭐ NOVO
+│   ├── 📄 loja.js                              
 │   ├── 📄 login.js
-│   ├── 📄 minhas-compras.js                    ⭐ NOVO
+│   ├── 📄 minhas-compras.js                    
 │   ├── 📄 produtos.js
 │   ├── 📄 sidebar.js
 │   ├── 📄 usuarios.js
-│   └── 📄 vendas.js                            ⭐ NOVO
+│   └── 📄 vendas.js                            
 │
 ├── 📁 pages/
 │   ├── 📄 compras.html
 │   ├── 📄 dashboard.html
-│   ├── 📄 loja.html                            ⭐ NOVO
+│   ├── 📄 loja.html                            
 │   ├── 📄 login.html
-│   ├── 📄 minhas-compras.html                  ⭐ NOVO
+│   ├── 📄 minhas-compras.html                  
 │   ├── 📄 produtos.html
 │   ├── 📄 usuarios.html
-│   └── 📄 vendas.html                          ⭐ NOVO
+│   └── 📄 vendas.html                          
 │
 ├── 📁 php/
 │   │
 │   ├── 📁 api/
-│   │   ├── 📄 api_alterar_status_produto.php   ⭐ NOVO
-│   │   ├── 📄 api_cadastrar_cliente.php        ⭐ NOVO
+│   │   ├── 📄 api_alterar_status_produto.php   
+│   │   ├── 📄 api_cadastrar_cliente.php        
 │   │   ├── 📄 api_compras.php
-│   │   ├── 📄 api_criar_compra.php             ⭐ NOVO
-│   │   ├── 📄 api_criar_produto.php            ⭐ NOVO
-│   │   ├── 📄 api_criar_usuario.php            ⭐ NOVO
+│   │   ├── 📄 api_criar_compra.php             
+│   │   ├── 📄 api_criar_produto.php            
+│   │   ├── 📄 api_criar_usuario.php            
 │   │   ├── 📄 api_dashboard.php
-│   │   ├── 📄 api_editar_produto.php           ⭐ NOVO
-│   │   ├── 📄 api_excluir_usuario.php          ⭐ NOVO
+│   │   ├── 📄 api_editar_produto.php           
+│   │   ├── 📄 api_excluir_usuario.php          
 │   │   ├── 📄 api_login.php
-│   │   ├── 📄 api_minhas_compras.php           ⭐ NOVO
+│   │   ├── 📄 api_minhas_compras.php           
 │   │   ├── 📄 api_produtos.php
-│   │   ├── 📄 api_registrar_venda.php          ⭐ NOVO
+│   │   ├── 📄 api_registrar_venda.php          
 │   │   ├── 📄 api_sidebar.php
 │   │   ├── 📄 api_usuarios.php
-│   │   └── 📄 api_vendas.php                   ⭐ NOVO
+│   │   └── 📄 api_vendas.php                   
 │   │
 │   └── 📁 db/
 │       ├── 📄 compras_db.php
@@ -136,7 +136,7 @@ v_erp/
 │       ├── 📄 produtos_db.php
 │       ├── 📄 sidebar_db.php
 │       ├── 📄 usuarios_db.php
-│       └── 📄 vendas_db.php                    ⭐ NOVO
+│       └── 📄 vendas_db.php                    
 │
 └── 📁 sql/
 └── 📄 database.sql
