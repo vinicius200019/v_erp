@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>V-ERP - Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--cor-secundaria); }
+        .auth-tabs { display: flex; gap: 10px; margin-bottom: 25px; }
+        .auth-tab { flex: 1; padding: 12px; background: #e2e8f0; color: #475569; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.25s; font-family: inherit; }
+        .auth-tab.active { background: var(--cor-primaria); color: white; }
+        .auth-form { display: none; }
+        .auth-form.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="card" style="width: 100%; max-width: 420px;">
+        <h2 id="titulo-tela">Acesso ao Sistema</h2>
+
+        <div class="auth-tabs">
+            <button id="tab-entrar" class="auth-tab active" onclick="trocarAuthTab('entrar')">Entrar</button>
+            <button id="tab-cadastrar" class="auth-tab" onclick="trocarAuthTab('cadastrar')">Criar Conta</button>
+        </div>
+
+        <!-- FORM DE LOGIN -->
+        <div id="form-entrar" class="auth-form active">
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="login-email" placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" id="login-senha" placeholder="••••••">
+            </div>
+            <button class="btn btn-hero" style="width: 100%;" onclick="handleLogin()">Entrar</button>
+        </div>
+
+        <!-- FORM DE CADASTRO (cliente) -->
+        <div id="form-cadastrar" class="auth-form">
+            <p style="color: #64748b; font-size: 0.9em; margin-top: -5px;">Cadastro para clientes da loja.</p>
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="cad-email" placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+                <label>CPF ou CNPJ</label>
+                <input type="text" id="cad-cpf" placeholder="Apenas números" maxlength="14">
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" id="cad-senha" placeholder="••••••">
+            </div>
+            <div class="form-group">
+                <label>Confirmar Senha</label>
+                <input type="password" id="cad-senha2" placeholder="••••••">
+            </div>
+            <button class="btn btn-hero" style="width: 100%;" onclick="handleCadastro()">Criar Conta</button>
+        </div>
+
+        <div class="form-link" style="margin-top: 20px;">
+            <a href="../index.html">← Voltar para a Home</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
