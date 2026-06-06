@@ -25,12 +25,14 @@ O sistema conta com **duas áreas de acesso distintas**: um painel administrativ
 
 * **🔐 Controle de Acesso Multiperfil:** Login unificado com redirecionamento automático para área admin ou loja, conforme perfil do usuário.
 * **📦 Gestão de Estoque:** Cadastro de produtos com SKU, preço de custo, preço de venda e margem de lucro calculada automaticamente.
+* **⚠️ Controle de Produtos Danificados:** Marcação de unidades danificadas (que saem do estoque normal), venda avulsa de produtos danificados com baixa no estoque e entrada no faturamento, além da opção de recuperar unidades de volta ao estoque.
 * **🏭 Catálogo do Fornecedor:** Tela dedicada para registrar entradas de mercadoria, com atualização automática do estoque.
 * **🛒 Loja Virtual com Carrinho:** Cliente pode adicionar múltiplos produtos ao carrinho antes de finalizar a compra.
 * **📄 Geração de Nota Fiscal em PDF:** Comprovante automático após cada compra, com detalhamento de itens e dados do cliente.
 * **📊 Dashboard Dinâmico:** KPIs em tempo real, gráficos de comparativo Compras vs Vendas, top produtos e estoque crítico.
 * **📑 Relatório Contábil Completo (PDF):** Plano de Contas, Lançamentos (Razonete), Controle de Estoque por Custo Médio, DRE e Balanço Patrimonial.
 * **💵 Tributação Automática:** Cálculo de Simples Nacional (10%) integrado aos lançamentos contábeis e DRE.
+* **🧾 Despesas Operacionais Fixas:** Aluguel, luz e água contabilizados automaticamente no fluxo de caixa, refletindo na DRE e no Balanço Patrimonial.
 
 ---
 
@@ -75,7 +77,7 @@ O projeto utiliza a stack web clássica com bibliotecas auxiliares para gráfico
 
 ## 📂 Estrutura do Projeto
 
-Abaixo está a organização dos arquivos e pastas do repositório:
+Abaixo está a organização dos arquivos e pastas do repositório. Os itens marcados com ⭐ são **novos ou foram alterados** nesta versão:
 
 ```text
 v_erp/
@@ -84,7 +86,7 @@ v_erp/
 ├── 📄 README.md
 │
 ├── 📁 css/
-│   └── 📄 style.css
+│   └── ⭐ 📄 style.css
 │
 ├── 📁 js/
 │   ├── 📄 auth.js
@@ -95,7 +97,7 @@ v_erp/
 │   ├── 📄 loja.js
 │   ├── 📄 login.js
 │   ├── 📄 minhas-compras.js
-│   ├── 📄 produtos.js
+│   ├── ⭐ 📄 produtos.js
 │   ├── 📄 sidebar.js
 │   ├── 📄 usuarios.js
 │   └── 📄 vendas.js
@@ -108,7 +110,7 @@ v_erp/
 │   ├── 📄 loja.html
 │   ├── 📄 login.html
 │   ├── 📄 minhas-compras.html
-│   ├── 📄 produtos.html
+│   ├── ⭐ 📄 produtos.html
 │   ├── 📄 usuarios.html
 │   └── 📄 vendas.html
 │
@@ -127,16 +129,19 @@ v_erp/
 │   │   ├── 📄 api_finalizar_carrinho.php
 │   │   ├── 📄 api_gerar_contabilidade.php
 │   │   ├── 📄 api_login.php
+│   │   ├── ⭐ 📄 api_marcar_danificado.php
 │   │   ├── 📄 api_minhas_compras.php
 │   │   ├── 📄 api_nota_fiscal.php
-│   │   ├── 📄 api_produtos.php
+│   │   ├── ⭐ 📄 api_produtos.php
+│   │   ├── ⭐ 📄 api_recuperar_danificado.php
 │   │   ├── 📄 api_registrar_venda.php
 │   │   ├── 📄 api_sidebar.php
 │   │   ├── 📄 api_usuarios.php
-│   │   └── 📄 api_vendas.php
+│   │   ├── 📄 api_vendas.php
+│   │   └── ⭐ 📄 api_vender_danificado.php
 │   │
 │   ├── 📁 contabilidade/
-│   │   └── 📄 calculos.php
+│   │   └── ⭐ 📄 calculos.php
 │   │
 │   ├── 📁 db/
 │   │   ├── 📄 carrinho_db.php
@@ -144,7 +149,7 @@ v_erp/
 │   │   ├── 📄 conexao.php
 │   │   ├── 📄 dashboard_db.php
 │   │   ├── 📄 login_db.php
-│   │   ├── 📄 produtos_db.php
+│   │   ├── ⭐ 📄 produtos_db.php
 │   │   ├── 📄 sidebar_db.php
 │   │   ├── 📄 usuarios_db.php
 │   │   └── 📄 vendas_db.php
@@ -152,10 +157,12 @@ v_erp/
 │   └── 📦 tcpdf.zip         <-----       ⚠️ DESCOMPACTAR ANTES DE USAR!
 │
 └── 📁 sql/
-    └── 📄 database.sql
+    └── ⭐ 📄 database.sql
 ```
 
 > ⚠️ **Atenção sobre o TCPDF:** A biblioteca foi compactada (`tcpdf.zip`) para respeitar o limite de upload do GitHub. **É obrigatório descompactá-la** antes de rodar o sistema. Veja o passo 4 da seção de instalação abaixo.
+
+> ⭐ **Sobre as alterações desta versão:** Esta versão adicionou o **controle de produtos danificados** (marcação por quantidade, venda com baixa no estoque e entrada no faturamento, e recuperação de unidades) e as **despesas operacionais fixas** (aluguel, luz e água) no fluxo contábil. Caso esteja atualizando a partir de uma versão anterior, **não esqueça de adicionar a coluna `estoque_danificado`** na tabela `produtos` (veja o passo 3 da instalação).
 
 ---
 
@@ -187,6 +194,12 @@ git clone https://github.com/vinicius200019/v_erp.git
 3. Crie um novo banco de dados chamado **`v_erp`**.
 
 4. Clique na aba **Importar**, selecione o arquivo `database.sql` que está dentro da pasta `/sql` do projeto e confirme.
+
+5. **(Apenas se estiver atualizando de uma versão antiga)** Caso o seu banco já exista sem a coluna de produtos danificados, rode o comando abaixo na aba **SQL** do phpMyAdmin:
+
+```sql
+ALTER TABLE produtos ADD COLUMN estoque_danificado INT DEFAULT 0 AFTER estoque;
+```
 
 ### 4. ⚠️ Descompactar o TCPDF (passo obrigatório)
 
@@ -239,11 +252,13 @@ Para validar todas as funcionalidades, siga este fluxo:
 1. **Login como Admin** → Acesse o Dashboard e visualize as métricas.
 2. **Cadastre um produto** no Estoque (defina preço de custo e venda — a margem é calculada automaticamente).
 3. **Vá em Fornecedor** e registre uma compra desse produto (o estoque será atualizado).
-4. **Faça logout e crie uma conta de cliente** com CPF/CNPJ.
-5. **Faça login como cliente** → Adicione produtos ao carrinho na Loja.
-6. **Finalize a compra** → A nota fiscal será gerada automaticamente em PDF.
-7. **Volte ao admin** → Verifique a venda em "Vendas" e clique em **"GERAR CONTABILIDADE"** no Dashboard.
-8. **O PDF gerado conterá:** Plano de Contas, Razonete, Custo Médio, DRE e Balanço Patrimonial.
+4. **Marque algumas unidades como danificadas** no Estoque (botão "⚠️ Marcar danificado") e confira a aba **Produtos Danificados**.
+5. **Venda um produto danificado** (botão "💲 Vender", informando quantidade e valor total) e confirme que entrou no faturamento.
+6. **Faça logout e crie uma conta de cliente** com CPF/CNPJ.
+7. **Faça login como cliente** → Adicione produtos ao carrinho na Loja.
+8. **Finalize a compra** → A nota fiscal será gerada automaticamente em PDF.
+9. **Volte ao admin** → Verifique a venda em "Vendas" e clique em **"GERAR CONTABILIDADE"** no Dashboard.
+10. **O PDF gerado conterá:** Plano de Contas, Razonete, Custo Médio, DRE e Balanço Patrimonial (já com as despesas de aluguel, luz e água).
 
 ---
 
