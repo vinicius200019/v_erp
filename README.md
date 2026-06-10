@@ -260,3 +260,7 @@ Para validar todas as funcionalidades, siga este fluxo:
 ## ⌨️ Desenvolvedores
 
 <strong>Vinícius</strong>
+<strong>Artur</strong>
+<strong>Khaue</strong>
+<strong>Pedro</strong>
+<strong>Joao Pedro</strong>
