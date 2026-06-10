@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>V-ERP - Dashboard</title>
+    <!-- Chart.js para os gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header><h1>📊 Painel de Controle</h1></header>
+<nav>
+    <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="produtos.html">Estoque</a></li>
+        <li><a href="fornecedor.html">Fornecedor</a></li>
+        <li><a href="compras.html">Compras</a></li>
+        <li><a href="vendas.html">Vendas</a></li>
+        <li><a href="usuarios.html">Equipe</a></li>
+    </ul>
+</nav>
+    <main>
+        <!-- ===== KPIs DO TOPO (4 cards principais) ===== -->
+        <div class="kpi-grid">
+            <div class="kpi-card kpi-blue">
+                <div class="kpi-icon">📦</div>
+                <div class="kpi-info">
+                    <div class="kpi-value" id="kpi-itens-estoque">-</div>
+                    <div class="kpi-label">Itens em Estoque</div>
+                    <div class="kpi-extra" id="kpi-produtos-ativos">- produtos ativos</div>
+                </div>
+            </div>
+
+            <div class="kpi-card kpi-purple">
+                <div class="kpi-icon">💼</div>
+                <div class="kpi-info">
+                    <div class="kpi-value" id="kpi-patrimonio">-</div>
+                    <div class="kpi-label">Valor Patrimonial</div>
+                    <div class="kpi-extra">estoque × preço de venda</div>
+                </div>
+            </div>
+
+            <div class="kpi-card kpi-red">
+                <div class="kpi-icon">📤</div>
+                <div class="kpi-info">
+                    <div class="kpi-value" id="kpi-compras-mes">-</div>
+                    <div class="kpi-label">Compras do Mês</div>
+                    <div class="kpi-extra" id="kpi-compras-qtd">- compras</div>
+                </div>
+            </div>
+
+            <div class="kpi-card kpi-green">
+                <div class="kpi-icon">📥</div>
+                <div class="kpi-info">
+                    <div class="kpi-value" id="kpi-vendas-mes">-</div>
+                    <div class="kpi-label">Vendas do Mês</div>
+                    <div class="kpi-extra" id="kpi-vendas-qtd">- vendas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CARD DE LUCRO DO MÊS ===== -->
+        <div class="card-lucro">
+            <div>
+                <div class="lucro-label">Resultado do Mês (Vendas − Compras)</div>
+                <div class="lucro-value" id="kpi-lucro-mes">-</div>
+            </div>
+            <div class="lucro-status" id="lucro-status">📈</div>
+        </div>
+
+        <!-- ===== GRÁFICOS ===== -->
+        <div class="dashboard-graficos">
+            <div class="card">
+                <h3>Compras vs Vendas (Últimos 6 Meses)</h3>
+                <p style="color: #64748b; font-size: 0.9em;">Comparativo mensal das movimentações.</p>
+                <div class="chart-wrapper">
+                    <canvas id="grafico-comparativo"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Top Produtos Mais Vendidos</h3>
+                <p style="color: #64748b; font-size: 0.9em;">Em quantidade de unidades.</p>
+                <div class="chart-wrapper">
+                    <canvas id="grafico-top-produtos"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TABELAS ANALÍTICAS ===== -->
+        <div class="dashboard-tabelas">
+            <div class="card">
+                <h3>🏆 Top 5 Produtos Mais Vendidos</h3>
+                <table class="crud-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Produto</th>
+                            <th>Unidades</th>
+                            <th>Receita</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-top-produtos"></tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Estoque Crítico</h3>
+                <p style="color: #64748b; font-size: 0.9em;">Produtos com menos de 5 unidades.</p>
+                <table class="crud-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Produto</th>
+                            <th>Estoque</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-estoque-critico"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+        <!-- ===== BOTÃO GERAR CONTABILIDADE ===== -->
+        <div class="contabilidade-section">
+            <div class="contabilidade-info">
+                <h2>📑 Relatórios Contábeis</h2>
+                <p>
+                    Gere um relatório PDF completo com os <strong>Lançamentos Contábeis (Razonete)</strong>,
+                    o <strong>Controle de Estoque por Custo Médio</strong> e o <strong>Balanço Patrimonial</strong>
+                    da empresa, baseado em todas as compras e vendas registradas no sistema.
+                </p>
+            </div>
+            <button class="btn-contabilidade" onclick="gerarContabilidade()">
+                📥 GERAR CONTABILIDADE
+            </button>
+        </div>
+
+</body>
+</html>
