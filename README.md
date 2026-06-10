@@ -86,7 +86,7 @@ v_erp/
 ├── 📄 README.md
 │
 ├── 📁 css/
-│   └── ⭐ 📄 style.css
+│   └── 📄 style.css
 │
 ├── 📁 js/
 │   ├── 📄 auth.js
@@ -97,7 +97,7 @@ v_erp/
 │   ├── 📄 loja.js
 │   ├── 📄 login.js
 │   ├── 📄 minhas-compras.js
-│   ├── ⭐ 📄 produtos.js
+│   ├── 📄 produtos.js
 │   ├── 📄 sidebar.js
 │   ├── 📄 usuarios.js
 │   └── 📄 vendas.js
@@ -110,7 +110,7 @@ v_erp/
 │   ├── 📄 loja.html
 │   ├── 📄 login.html
 │   ├── 📄 minhas-compras.html
-│   ├── ⭐ 📄 produtos.html
+│   ├── 📄 produtos.html
 │   ├── 📄 usuarios.html
 │   └── 📄 vendas.html
 │
@@ -129,19 +129,19 @@ v_erp/
 │   │   ├── 📄 api_finalizar_carrinho.php
 │   │   ├── 📄 api_gerar_contabilidade.php
 │   │   ├── 📄 api_login.php
-│   │   ├── ⭐ 📄 api_marcar_danificado.php
+│   │   ├── 📄 api_marcar_danificado.php
 │   │   ├── 📄 api_minhas_compras.php
 │   │   ├── 📄 api_nota_fiscal.php
-│   │   ├── ⭐ 📄 api_produtos.php
-│   │   ├── ⭐ 📄 api_recuperar_danificado.php
+│   │   ├── 📄 api_produtos.php
+│   │   ├── 📄 api_recuperar_danificado.php
 │   │   ├── 📄 api_registrar_venda.php
 │   │   ├── 📄 api_sidebar.php
 │   │   ├── 📄 api_usuarios.php
 │   │   ├── 📄 api_vendas.php
-│   │   └── ⭐ 📄 api_vender_danificado.php
+│   │   └── 📄 api_vender_danificado.php
 │   │
 │   ├── 📁 contabilidade/
-│   │   └── ⭐ 📄 calculos.php
+│   │   └── 📄 calculos.php
 │   │
 │   ├── 📁 db/
 │   │   ├── 📄 carrinho_db.php
@@ -149,7 +149,7 @@ v_erp/
 │   │   ├── 📄 conexao.php
 │   │   ├── 📄 dashboard_db.php
 │   │   ├── 📄 login_db.php
-│   │   ├── ⭐ 📄 produtos_db.php
+│   │   ├── 📄 produtos_db.php
 │   │   ├── 📄 sidebar_db.php
 │   │   ├── 📄 usuarios_db.php
 │   │   └── 📄 vendas_db.php
@@ -157,7 +157,7 @@ v_erp/
 │   └── 📦 tcpdf.zip         <-----       ⚠️ DESCOMPACTAR ANTES DE USAR!
 │
 └── 📁 sql/
-    └── ⭐ 📄 database.sql
+    └── 📄 database.sql
 ```
 
 > ⚠️ **Atenção sobre o TCPDF:** A biblioteca foi compactada (`tcpdf.zip`) para respeitar o limite de upload do GitHub. **É obrigatório descompactá-la** antes de rodar o sistema. Veja o passo 4 da seção de instalação abaixo.
@@ -195,11 +195,6 @@ git clone https://github.com/vinicius200019/v_erp.git
 
 4. Clique na aba **Importar**, selecione o arquivo `database.sql` que está dentro da pasta `/sql` do projeto e confirme.
 
-5. **(Apenas se estiver atualizando de uma versão antiga)** Caso o seu banco já exista sem a coluna de produtos danificados, rode o comando abaixo na aba **SQL** do phpMyAdmin:
-
-```sql
-ALTER TABLE produtos ADD COLUMN estoque_danificado INT DEFAULT 0 AFTER estoque;
-```
 
 ### 4. ⚠️ Descompactar o TCPDF (passo obrigatório)
 
